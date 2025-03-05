@@ -9,13 +9,15 @@
        - `O` → Orientación (`H` para horizontal, `V` para vertical).
 
 ## 📥 Ejemplo de Entrada
-   2
-   1 2 H 4 4 V 
-   0 0 H 2 3 V 5 5 H
-   6 6 H 
-   1 2 H 4 4 V
-   0 1 V 3 3 H 5 5 V
-   7 7 V
+```txt
+2
+1 2 H  4 4 V
+0 0 H  2 3 V  5 5 H
+6 6 H
+1 2 H  4 4 V
+0 1 V  3 3 H  5 5 V
+7 7 V
+
 ## 📄 Explicación del Ejemplo
 
 ### Partida 1  
