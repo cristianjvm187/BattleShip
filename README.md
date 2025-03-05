@@ -1,8 +1,6 @@
-# Battleship AI - Historial de Partidas
+# Battleship Algorithm
 
-Este proyecto almacena y procesa partidas anteriores del juego Battleship, donde los barcos tienen una disposición fija por tipo.
-
-## 📌 Formato de Entrada
+## 📌 Formato de Entrada Historial de Partidas
 1. Un número entero `N` → cantidad de partidas anteriores.
 2. Luego, para cada partida:
    - `K` líneas (una por cada tipo de barco), cada una con:
@@ -11,3 +9,19 @@ Este proyecto almacena y procesa partidas anteriores del juego Battleship, donde
        - `O` → Orientación (`H` para horizontal, `V` para vertical).
 
 ## 📥 Ejemplo de Entrada
+## 📄 Explicación del Ejemplo
+
+### Partida 1  
+- **Tipo 1 (2 barcos)** → `(1,2,H)`, `(4,4,V)`  
+- **Tipo 2 (3 barcos)** → `(0,0,H)`, `(2,3,V)`, `(5,5,H)`  
+- **Tipo 3 (1 barco)** → `(6,6,H)`
+
+### Partida 2  
+- **Tipo 1 (2 barcos)** → `(1,2,H)`, `(4,4,V)`  
+- **Tipo 2 (3 barcos)** → `(0,1,V)`, `(3,3,H)`, `(5,5,V)`  
+- **Tipo 3 (1 barco)** → `(7,7,V)`
+
+---
+
+## 🚀 Cómo Ejecutarlo
+(Ejemplo de cómo correr el código si es un script)
