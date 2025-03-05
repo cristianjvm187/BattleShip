@@ -7,6 +7,9 @@
      - `bi × 3` valores( bi la cantidad de barcos de ese tipo):
        - `X Y` → Coordenadas de la esquina superior izquierda.
        - `O` → Orientación (`H` para horizontal, `V` para vertical).
+3. **Las siguientes `N` líneas contienen la información de los ataques del rival:**  
+   - Cada línea comienza con un número entero `A` → cantidad de ataques en esa partida.  
+   - Luego, `2 × A` valores representando las coordenadas `X Y` de los disparos del rival.  
 
 ## 📥 Ejemplo de Entrada
 ```txt
@@ -17,6 +20,8 @@
 1 2 H  4 4 V
 0 1 V  3 3 H  5 5 V
 7 7 V
+3 1 1  4 4  2 3
+2 5 5  0 1
 ````
 
 ## 📄 Explicación del Ejemplo
