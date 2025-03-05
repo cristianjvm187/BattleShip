@@ -17,8 +17,11 @@
 1 2 H  4 4 V
 0 1 V  3 3 H  5 5 V
 7 7 V
+````
 
 ## 📄 Explicación del Ejemplo
+- **`N = 2` (Dos partidas anteriores).**  
+- Cada partida contiene `K` líneas con la ubicación de los barcos de cada tipo
 
 ### Partida 1  
 - **Tipo 1 (2 barcos)** → `(1,2,H)`, `(4,4,V)`  
