@@ -40,3 +40,26 @@
 - **Tipo 2 (3 barcos)** → `(0,1,V)`, `(3,3,H)`, `(5,5,V)`  
 - **Tipo 3 (1 barco)** → `(7,7,V)`  
 - **Ataques del Rival (2 ataques)** → `(5,5)`, `(0,1)` 
+
+## 📌 **Formato de Salida de los barcos(jugador defensivo): **
+Son K lineas (una por cada tipo de barco)
+Cada línea en la salida contiene las ubicaciones de los barcos de un tipo. Cada barco se representa por tres valores: `X Y O`.
+Las lineas van a tener 3*bi caracteres(siendo bi la cantidad de barcos del tipo i)
+
+### **Ejemplo de Salida:**
+
+```txt
+1 2 H 4 4 V
+0 0 H 2 3 V 5 5 H
+6 6 H
+2 1 2 H 4 4 V
+0 1 V 3 3 H 5 5 V
+7 7 V
+```
+## 📄 Explicación del Ejemplo
+
+- **`K = 3`** (Tres tipos de barcos).  
+- **Cada tipo de barco tiene `bi` barcos**, y cada barco está representado por sus coordenadas `X Y` (que corresponden a la esquina derecha del barco) y su orientación `O` (`H` para horizontal, `V` para vertical).
+
+
+
