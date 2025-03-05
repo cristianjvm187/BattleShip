@@ -23,22 +23,20 @@
 3 1 1  4 4  2 3
 2 5 5  0 1
 ````
-
 ## 📄 Explicación del Ejemplo
-- **`N = 2` (Dos partidas anteriores).**  
-- Cada partida contiene `K` líneas con la ubicación de los barcos de cada tipo
 
-### Partida 1  
+- **`N = 2` (Dos partidas anteriores).**  
+- **Cada partida tiene `K` líneas** con la ubicación de los barcos de cada tipo.  
+- **Después de las partidas, hay `N` líneas** con los ataques del rival.  
+
+### **Partida 1**  
 - **Tipo 1 (2 barcos)** → `(1,2,H)`, `(4,4,V)`  
 - **Tipo 2 (3 barcos)** → `(0,0,H)`, `(2,3,V)`, `(5,5,H)`  
-- **Tipo 3 (1 barco)** → `(6,6,H)`
+- **Tipo 3 (1 barco)** → `(6,6,H)`  
+- **Ataques del Rival (3 ataques)** → `(1,1)`, `(4,4)`, `(2,3)`  
 
-### Partida 2  
+### **Partida 2**  
 - **Tipo 1 (2 barcos)** → `(1,2,H)`, `(4,4,V)`  
 - **Tipo 2 (3 barcos)** → `(0,1,V)`, `(3,3,H)`, `(5,5,V)`  
-- **Tipo 3 (1 barco)** → `(7,7,V)`
-
----
-
-## 🚀 Cómo Ejecutarlo
-(Ejemplo de cómo correr el código si es un script)
+- **Tipo 3 (1 barco)** → `(7,7,V)`  
+- **Ataques del Rival (2 ataques)** → `(5,5)`, `(0,1)` 
