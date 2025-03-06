@@ -60,5 +60,40 @@ Las lineas van a tener 3*bi caracteres(siendo bi la cantidad de barcos del tipo 
 - **`K = 3`** (Tres tipos de barcos).  
 - **Cada tipo de barco tiene `bi` barcos**, y cada barco está representado por sus coordenadas `X Y` (que corresponden a la esquina derecha del barco) y su orientación `O` (`H` para horizontal, `V` para vertical).
 
+## 📌 Descripción del Formato de Interacción del Jugador Atacante
+
+Después de que el programa te proporcione toda la información relevante sobre la partida anteriores (ubicación de los barcos y otros detalles), comenzará a escuchar tus ataques. El jugador proporcionará coordenadas en formato `(x, y)` y el programa responderá con:
+
+- **`1`**: El ataque fue exitoso (coordenadas correctas, se acertó a un barco).
+- **`0`**: El ataque falló (coordenadas incorrectas, no se acertó a un barco).
+- **`-1`**: Fin de la partida. El jugador ya no puede hacer más ataques.
+
+### **Formato de Interacción:**
+
+1. **Al inicio de la partida**, el programa te proporciona toda la información necesaria sobre los barcos y la configuración del juego de las partidas anteriores.
+   
+2. Después de eso, el programa comenzará a escuchar tus ataques y te dará una respuesta interactiva según el ataque:
+
+   - **`1`**: Si el ataque acertó a un barco.
+   - **`0`**: Si el ataque no acertó a ningún barco.
+   - El programa continuará hasta que se haya dado un ataque en el que el programa devuelva **`-1`**, lo que indica que la partida ha terminado.
+
+### 📄 **Ejemplo de Interacción:**
+
+#### **Ejemplo:**
+
+```txt
+(1, 1)  ← El jugador ingresa las coordenadas del ataque.
+0       ← El ataque falló (no acertó a un barco).
+
+(2, 2)  ← El jugador ingresa las coordenadas del ataque.
+1       ← El ataque fue exitoso (coordenadas correctas, acertó a un barco).
+
+(3, 3)  ← El jugador ingresa las coordenadas del ataque.
+1       ← El ataque fue exitoso (coordenadas correctas, acertó a un barco).
+
+(4, 4)  ← El jugador ingresa las coordenadas del ataque.
+-1      ← Fin de la partida (el juego ha terminado, no se pueden realizar más ataques).
+```
 
 
