@@ -32,7 +32,7 @@ def Possible_def(defense, sizeOfBoard=10, numberOfShips={2: 1, 3: 2, 4: 1, 5: 1}
     for row in board:
         numberOfOnes += sum(row)
     if numberOfOnes != sum([numberOfShips[type] * type for type in numberOfShips]):
-        return 0, zeros
+        return 10, zeros
 
     return 1, board
 
@@ -57,6 +57,7 @@ def Ejecutacion(lenguaje, name):
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
+            bufsize=1,
         )
     return obj
 
@@ -166,14 +167,15 @@ def Battle(
         c = 0
         # print("aassa")
         while True:
-            intento = get_atk.stdout.readline().strip()
+            intento = get_atk.stdout.readline().strip().split()
+            # print(intento)
             if not intento:
-                print("PUas")
+                # print("Puas")
                 break
-            print("tiro ", intento)
-            i, j = int(intento[0]), int(intento[2])
+            # print("tiro ", intento)
+            i, j = int(intento[0]), int(intento[1])
             posAtk.append((i, j))
-            print(Def_current_matrix[i][j])
+            # print(Def_current_matrix[i][j])
             # si dio a un barco
             if Def_current_matrix[i][j] == 1:
                 c += 1
@@ -181,15 +183,17 @@ def Battle(
                 if c == totalOfShips:
                     get_atk.stdin.write("-1 \n")
                     get_atk.stdin.flush()
+                    get_atk.stdin.close()
                     break  # Salir del bucle cuando acierte
                 else:
-                    get_atk.stdin.write("1\n")
+                    get_atk.stdin.write("1 \n")
                     get_atk.stdin.flush()
             # si no dio
             else:
                 get_atk.stdin.write("0\n")
                 get_atk.stdin.flush()
-
+            # print("puas")
+    # print(posAtk)
     return len(posAtk), Def_current, posAtk
 
 
@@ -221,7 +225,7 @@ if __name__ == "__main__":
             [(1, 1), (2, 2)],
         ],
         {2: 1, 3: 2, 4: 1, 5: 1},
-        5,
+        2 + 6 + 4 + 5,
         10,
     )
     # AtkPilot.player1()

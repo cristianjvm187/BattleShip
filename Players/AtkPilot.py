@@ -2,8 +2,8 @@ import sys
 
 N = int(input())  # Cantidad de partidas anteriores
 
-gz = 4  # alto del tablero cuadrado
-K = 3  # Cantidad de tipos de barcos
+gz = 10  # alto del tablero cuadrado
+K = 4  # Cantidad de tipos de barcos
 dim = []  # Dimensiones de cada tipo en orden
 b = []  # Cantidad de barcos de cada tipo
 
@@ -31,13 +31,13 @@ for j in range(N):
 def player1():
     for i in range(gz):
         for j in range(gz):
-            print(i, j)
-            sys.stdout.flush()
+            print(i, j, flush=True)
 
             result = int(input())
+            # print(result)
             # result = 0
             if result == -1:
-                return
+                break
 
 
 # print(inp_def)

@@ -36,8 +36,8 @@ def player1():
         output = ""
         for j in range(b[i]):
             # output+=str(j) + " " + str(i* max_dim + dim[i] - 1)+" V "
-            output += str(aux) + " " + str(0 * max_dim + dim[i] - 1) + " V "
-            aux += 1
+            output += str(j * dim[i] + j) + " " + str(aux) + " V "
+        aux += 1
         output = output[:-1]
 
         print(output)
