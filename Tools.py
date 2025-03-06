@@ -45,7 +45,7 @@ def Possible_def(defense, sizeOfBoard=10, numberOfShips={2: 1, 3: 2, 4: 1, 5: 1}
 # print(Possible_def(0))
 
 
-def Ejecutacion(lenguaje, name,asdasd):
+def Ejecutacion(lenguaje, name, asdasd):
     obj = None
     if lenguaje == "cpp":
         obj = subprocess.Popen(
@@ -114,17 +114,18 @@ def send_info_def(
 
 
 def send_info_atk(n_game, lastAtack, obj: subprocess.Popen):
-    obj.stdin.write(str(n_game) + "\n")
-    obj.stdin.flush()
+    # obj.stdin.write(str(n_game) + "\n")
+    # obj.stdin.flush()
 
     for i in range(n_game):
         # cantidad de tiros
-        obj.stdin.write(str(len(lastAtack[i])) + "\n")
-        obj.stdin.flush()
+        obj.stdin.write(str(len(lastAtack[i])) + " ")
         for j in range(len(lastAtack[i])):
             obj.stdin.write(
                 str(lastAtack[i][j][0]) + " " + str(lastAtack[i][j][1]) + " "
             )
+        obj.stdin.flush()
+        obj.stdin.write("\n")
         obj.stdin.flush()
 
 
