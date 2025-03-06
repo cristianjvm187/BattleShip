@@ -1,16 +1,11 @@
 import subprocess
+import pprint
 
 
 def Possible_def(defense, sizeOfBoard=10, numberOfShips={2: 1, 3: 2, 4: 1, 5: 1}):
     """
     defense = dict <int, list <tuple <int,int,str = {H, V}>>>
     """
-    defense = {
-        2: [(2, 6, "H")],
-        3: [(6, 0, "H"), (3, 8, "V")],
-        4: [(5, 4, "H")],
-        5: [(9, 0, "H")],
-    }
 
     k = (sizeOfBoard // 10) ** 2
     for type in numberOfShips:
@@ -45,7 +40,7 @@ def Possible_def(defense, sizeOfBoard=10, numberOfShips={2: 1, 3: 2, 4: 1, 5: 1}
 # print(Possible_def(0))
 
 
-def Ejecutacion(lenguaje, name, asdasd):
+def Ejecutacion(lenguaje, name):
     obj = None
     if lenguaje == "cpp":
         obj = subprocess.Popen(
@@ -133,7 +128,9 @@ def get_pos_def(numberOfShips, obj: subprocess.Popen):
     Defensa = {}
     for type in numberOfShips:
         inp = obj.stdout.readline().strip().split()
-        Defensa[type] = [tuple(inp[i : i + 3]) for i in range(0, len(inp), 3)]
+        Defensa[type] = [
+            (int(inp[i]), int(inp[i + 1]), inp[i + 2]) for i in range(0, len(inp), 3)
+        ]
 
     return Defensa
 
@@ -156,31 +153,33 @@ def Battle(
     send_info_atk(n_game, lastAtack, get_def)
 
     Def_current = get_pos_def(numberOfShips, get_def)
-    p, Def_current_matrix = Possible_def(Def_current, sizeOfBoard, numberOfShips)
+    pprint.pprint(Def_current)
+    p, Def_current_matrix = Possible_def(Def_current)
 
+    pprint.pprint(Def_current_matrix)
     # _______________________________________________________________________________
-
+    posAtk = []
     if p == 1:
         get_atk = Ejecutacion(atklenguaje, atkplayer)
         send_info_def(n_game, lastDefense, get_atk, numberOfShips)
         send_info_atk(n_game, lastAtack, get_atk)
         c = 0
-        posAtk = []
+        # print("aassa")
         while True:
             intento = get_atk.stdout.readline().strip()
             if not intento:
-                # print("PUas")
+                print("PUas")
                 break
-            # print("tiro ",intento)
+            print("tiro ", intento)
             i, j = int(intento[0]), int(intento[2])
             posAtk.append((i, j))
-            # print(Def_current[i][j])
+            print(Def_current_matrix[i][j])
             # si dio a un barco
             if Def_current_matrix[i][j] == 1:
                 c += 1
                 # si le di a todos
                 if c == totalOfShips:
-                    get_atk.stdin.write("2\n")
+                    get_atk.stdin.write("-1 \n")
                     get_atk.stdin.flush()
                     break  # Salir del bucle cuando acierte
                 else:
@@ -194,40 +193,35 @@ def Battle(
     return len(posAtk), Def_current, posAtk
 
 
-send_info_def(
-    2,
-    [
-        {
-            2: [(2, 6, "H")],
-            3: [(6, 0, "H"), (3, 8, "V")],
-            4: [(5, 4, "H")],
-            5: [(9, 0, "H")],
-        },
-        {
-            2: [(2, 6, "H")],
-            3: [(6, 0, "H"), (3, 8, "V")],
-            4: [(5, 4, "H")],
-            5: [(9, 0, "H")],
-        },
-    ],
-)
-
-"""
-2
-2 1
-2 6 H  
-3 2
-6 0 H  3 8 V  
-4 1
-5 4 H  
-5 1
-9 0 H  
-2 1
-2 6 H  
-3 2
-6 0 H  3 8 V  
-4 1
-5 4 H  
-5 1
-9 0 H  
-"""
+if __name__ == "__main__":
+    exampledef = Ejecutacion("python", "Players/DefPilot.py")
+    exampleatk = Ejecutacion("python", "Players/AtkPilot.py")
+    Battle(
+        "python",
+        "python",
+        2,
+        "Players/DefPilot.py",
+        "Players/AtkPilot.py",
+        [
+            {
+                2: [(2, 6, "H")],
+                3: [(6, 0, "H"), (3, 8, "V")],
+                4: [(5, 4, "H")],
+                5: [(9, 0, "H")],
+            },
+            {
+                2: [(2, 6, "H")],
+                3: [(6, 0, "H"), (3, 8, "V")],
+                4: [(5, 4, "H")],
+                5: [(9, 0, "H")],
+            },
+        ],
+        [
+            [(2, 3), (4, 5), (1, 1)],
+            [(1, 1), (2, 2)],
+        ],
+        {2: 1, 3: 2, 4: 1, 5: 1},
+        5,
+        10,
+    )
+    # AtkPilot.player1()
