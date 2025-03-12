@@ -190,14 +190,16 @@ def Battle(
     pprint.pprint(Def_current_matrix)
     # _______________________________________________________________________________
     posAtk = []
+    num_shot = 0
     if p == 1:
         get_atk = Execute(atklenguaje, atkplayer)
         send_info_def(n_game, lastDefense, get_atk, numberOfShips)
         send_info_atk(n_game, lastAtack, get_atk)
         c = 0
         # print("aassa")
-        while True:
+        while num_shot < 2510:
             intento = get_atk.stdout.readline().strip().split()
+            num_shot += 1
             # print(intento)
             if not intento:
                 # print("Puas")
@@ -224,6 +226,7 @@ def Battle(
                 get_atk.stdin.flush()
             # print("puas")
     # print(posAtk)
+
     return len(posAtk), Def_current, posAtk
 
 

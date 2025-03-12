@@ -84,7 +84,7 @@ class Judge:
         else:
             self.win_player2 += 1
 
-        if p1 != 0 and p2 != 0:
+        if p1 != 0 and p2 != 0 and p1 != 2510 and p2 != 2510:
             self.pos_ataq_player1.append(Infop1[2])
             self.pos_def_player2.append(Infop1[1])
             self.pos_ataq_player2.append(Infop2[2])
