@@ -1,5 +1,6 @@
 import subprocess
 import pprint
+import time
 
 # variable de prueba
 Ns = {2: 25, 3: 50, 4: 25, 5: 25}
@@ -10,19 +11,21 @@ def Possible_def(defense, sizeOfBoard=Sb, numberOfShips=Ns):
     """
     Validates the placement of ships on a Battleship board.
     Parameters:
-    defense (dict): A dictionary where keys are ship lengths (int) and values are lists of tuples.
-                    Each tuple contains the row (int), column (int), and position ('H' for horizontal, 'V' for vertical).
+    defense (dict): A dictionary where keys are ship lengths (int) and values are lists of tuples. sEach tuple contains the row (int), column (int), and position ('H' for horizontal, 'V' for vertical).
     sizeOfBoard (int, optional): The size of the Battleship board. Default is 10.
     numberOfShips (dict, optional): A dictionary where keys are ship lengths (int) and values are the number of ships of that length. Default is {2: 1, 3: 2, 4: 1, 5: 1}.
     Returns:
     tuple: A tuple containing:
         - int: 1 if the ship placements are valid, 0 otherwise.
         - list: A 2D list representing the board with ships placed (1 for ship, 0 for empty).
-    defense = dict <int, list <tuple <int,int,str = {H, V}>>>
     """
 
     zeros = [[0 for _ in range(sizeOfBoard)] for _ in range(sizeOfBoard)]  # rev
     board = [[0 for _ in range(sizeOfBoard)] for _ in range(sizeOfBoard)]
+
+    if defense == None:
+        return 0, zeros
+
     for type in numberOfShips:
         if len(defense[type]) != numberOfShips[type]:
             return 0, zeros
@@ -183,11 +186,20 @@ def Battle(
     send_info_def(n_game, lastDefense, get_def, numberOfShips)
     send_info_atk(n_game, lastAtack, get_def)
 
+    start_time = time.time()
     Def_current = get_pos_def(numberOfShips, get_def)
-    pprint.pprint(Def_current)
+    if (time.time() - start_time) >= 5:
+        Def_current = None
+
+    get_def.kill()
+    get_def.stdin.close()
+    get_def.stdout.close()
+    get_def.stderr.close()
+
+    # pprint.pprint(Def_current)
     p, Def_current_matrix = Possible_def(Def_current)
 
-    pprint.pprint(Def_current_matrix)
+    # pprint.pprint(Def_current_matrix)
     # _______________________________________________________________________________
     posAtk = []
     num_shot = 0
@@ -197,7 +209,11 @@ def Battle(
         send_info_atk(n_game, lastAtack, get_atk)
         c = 0
         # print("aassa")
+        start_time = time.time()
         while num_shot < sizeOfBoard**2 + 10:
+            if (time.time() - start_time) >= 5:
+                num_shot = 2510
+                break
             intento = get_atk.stdout.readline().strip().split()
             num_shot += 1
             # print(intento)
@@ -215,7 +231,7 @@ def Battle(
                 if c == totalOfShips:
                     get_atk.stdin.write("-1 \n")
                     get_atk.stdin.flush()
-                    get_atk.stdin.close()
+                    # get_atk.stdin.close()
                     break  # Salir del bucle cuando acierte
                 else:
                     get_atk.stdin.write("1 \n")
@@ -225,9 +241,12 @@ def Battle(
                 get_atk.stdin.write("0\n")
                 get_atk.stdin.flush()
             # print("puas")
-    # print(posAtk)
-
-    return len(posAtk), Def_current, posAtk
+        # print(posAtk)
+        get_atk.kill()
+        get_atk.stdin.close()
+        get_atk.stdout.close()
+        get_atk.stderr.close()
+    return num_shot, Def_current, posAtk
 
 
 if __name__ == "__main__":
