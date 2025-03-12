@@ -197,7 +197,7 @@ def Battle(
         send_info_atk(n_game, lastAtack, get_atk)
         c = 0
         # print("aassa")
-        while num_shot < 2510:
+        while num_shot < sizeOfBoard**2 + 10:
             intento = get_atk.stdout.readline().strip().split()
             num_shot += 1
             # print(intento)
