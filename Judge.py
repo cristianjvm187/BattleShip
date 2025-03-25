@@ -44,10 +44,18 @@ class Judge:
         self.num_game += 1
 
     def LeagueMatch(self):
+        self.pos_def_player1 = []
+        self.pos_def_player2 = []
+        self.pos_ataq_player1 = []
+        self.pos_ataq_player2 = []
         for _ in range(self.cant_game):
             self.LeagueGame()
 
     def CupMatch(self):
+        self.pos_def_player1 = []
+        self.pos_def_player2 = []
+        self.pos_ataq_player1 = []
+        self.pos_ataq_player2 = []
         while self.win_player1 + self.win_player2 <= self.cant_game:
             self.CupGame()
 

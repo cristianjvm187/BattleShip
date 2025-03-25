@@ -43,3 +43,7 @@ print(Test.win_player1)
 Test.LeagueMatch()
 # Obtener la informacion de puntos obtenidos al enfrentarse con el jugador de prueba
 print(Test.points_player1)
+
+from Tools import Possible_def
+
+# Possible_def es una funcion que verifica si tu defensa esta correcta te puede ser util
