@@ -76,24 +76,24 @@ Después de que el programa te proporcione toda la información relevante sobre 
 
    - **`1`**: Si el ataque acertó a un barco.
    - **`0`**: Si el ataque no acertó a ningún barco.
-   - El programa continuará hasta que se haya dado un ataque en el que el programa devuelva **`-1`**, lo que indica que la partida ha terminado.
+   - El programa continuará hasta que se haya dado un ataque en el que el programa devuelva **`2`**, lo que indica que la partida ha terminado.
 
 ### 📄 **Ejemplo de Interacción:**
 
 #### **Ejemplo:**
 
 ```txt
-(1, 1)  ← El jugador ingresa las coordenadas del ataque.
+1 1  ← El jugador ingresa las coordenadas del ataque.
 0       ← El ataque falló (no acertó a un barco).
 
-(2, 2)  ← El jugador ingresa las coordenadas del ataque.
+2 2  ← El jugador ingresa las coordenadas del ataque.
 1       ← El ataque fue exitoso (coordenadas correctas, acertó a un barco).
 
-(3, 3)  ← El jugador ingresa las coordenadas del ataque.
+3 3  ← El jugador ingresa las coordenadas del ataque.
 1       ← El ataque fue exitoso (coordenadas correctas, acertó a un barco).
 
-(4, 4)  ← El jugador ingresa las coordenadas del ataque.
--1      ← Fin de la partida (el juego ha terminado, no se pueden realizar más ataques).
+4 4  ← El jugador ingresa las coordenadas del ataque.
+2      ← Fin de la partida (el juego ha terminado, no se pueden realizar más ataques).
 ```
 
 
