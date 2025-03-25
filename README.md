@@ -1,6 +1,10 @@
 # Battleship Algorithm
 
-Los K tipos de barcos y la catidad de barcos por cada tipo (bi) son conocidas por el usuario de antemano
+Los 5 tipos de barcos y la catidad de barcos por cada tipo son:
+- Barco 2x1 cantidad 25
+- Barco 3x1 cantidad 50
+- Barco 4x1 cantidad 25
+- Barco 5x1 cantidad 25
 
 ## 📌 Formato de Entrada Historial de Partidas
 1. Un número entero `N` → cantidad de partidas anteriores.
