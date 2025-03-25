@@ -105,9 +105,6 @@ def send_info_def(n_game, lastDefense, obj: subprocess.Popen, numberOfShips=Ns):
     siguimos iterando por la cantidad del barco j que hay en la partida j
     y damos la oritenacion , fila , columa
     """
-    obj.stdin.write(str(n_game) + "\n")
-    obj.stdin.flush()
-    # print(n_game)
 
     for i in range(n_game):
         for type in lastDefense[i]:
@@ -183,6 +180,8 @@ def Battle(
 ):
     Def_current = None
     get_def = Execute(deflenguaje, defplayer)
+    get_def.stdin.write(str(n_game) + "\n")
+    get_def.stdin.flush()
     send_info_def(n_game, lastDefense, get_def, numberOfShips)
     send_info_atk(n_game, lastAtack, get_def)
 
@@ -205,13 +204,15 @@ def Battle(
     num_shot = 0
     if p == 1:
         get_atk = Execute(atklenguaje, atkplayer)
+        get_atk.stdin.write(str(n_game) + "\n")
+        get_atk.stdin.flush()
         send_info_def(n_game, lastDefense, get_atk, numberOfShips)
         send_info_atk(n_game, lastAtack, get_atk)
         c = 0
         # print("aassa")
         start_time = time.time()
         while num_shot < sizeOfBoard**2 + 10:
-            if (time.time() - start_time) >= 5:
+            if (time.time() - start_time) >= 1:
                 num_shot = 2510
                 break
             intento = get_atk.stdout.readline().strip().split()

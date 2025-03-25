@@ -3,7 +3,6 @@ import time
 import random
 from Tools import *
 
-inicio = time.time()  # Guarda el tiempo de inicio
 INF = 50 * 50 + 10  # Infinitos
 
 
@@ -83,12 +82,12 @@ class Judge:
 
         if p1 != 0 and p2 != 0 and p1 != INF and p2 != INF:
             if p1 == p2:
-                self.win_player1 += 1
-                self.win_player2 += 1
+                self.points_player1 += 1
+                self.points_player2 += 1
             elif p1 < p2:
-                self.win_player1 += 2
+                self.points_player1 += 2
             else:
-                self.win_player2 += 2
+                self.points_player2 += 2
 
         if p1 != 0 and p2 != 0 and p1 != INF and p2 != INF:
             self.pos_ataq_player1.append(Infop1[2])
@@ -127,7 +126,7 @@ class Judge:
         p2 = Infop2[0]
 
         if p1 == p2:
-            if random.uniform() < 0.5:
+            if random.random() < 0.5:
                 self.win_player1 += 1
             else:
                 self.win_player2 += 1
