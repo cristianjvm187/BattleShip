@@ -1,6 +1,6 @@
-# Battleship Algorithm
+# Battleship Bot Warfare
 
-Los 5 tipos de barcos y la catidad de barcos por cada tipo son:
+Los 4 tipos de barcos y la catidad de barcos por cada tipo son:
 - Barco 2x1 cantidad 25
 - Barco 3x1 cantidad 50
 - Barco 4x1 cantidad 25
@@ -8,12 +8,12 @@ Los 5 tipos de barcos y la catidad de barcos por cada tipo son:
 
 ## 📌 Formato de Entrada Historial de Partidas
 1. Un número entero `N` → cantidad de partidas anteriores.
-2. Luego, para cada partida:
-   - `K` líneas (una por cada tipo de barco), cada una con:
+2. Luego, para cada  una de esas partida se proporcionara la defensa que diste:
+   - `4` líneas (una por cada tipo de barco), cada una con:
      - `bi × 3` valores( bi la cantidad de barcos de ese tipo):
        - `X Y` → Coordenadas de la esquina superior izquierda.
        - `O` → Orientación (`H` para horizontal, `V` para vertical).
-3. **Las siguientes `N` líneas contienen la información de los ataques del rival:**  
+3. **Las siguientes `N` líneas contienen la información de los ataques del rival en `N` partidas anteriores:**  
    - Cada línea comienza con un número entero `A` → cantidad de ataques en esa partida.  
    - Luego, `2 × A` valores representando las coordenadas `X Y` de los disparos del rival.  
 
@@ -32,7 +32,7 @@ Los 5 tipos de barcos y la catidad de barcos por cada tipo son:
 ## 📄 Explicación del Ejemplo
 
 - **`N = 2` (Dos partidas anteriores).**  
-- **Cada partida tiene `K` líneas** con la ubicación de los barcos de cada tipo.  
+- **Cada partida tiene `3` líneas** con la ubicación de los barcos de cada tipo.  
 - **Después de las partidas, hay `N` líneas** con los ataques del rival.  
 
 ### **Partida 1**  
@@ -48,7 +48,7 @@ Los 5 tipos de barcos y la catidad de barcos por cada tipo son:
 - **Ataques del Rival (2 ataques)** → `(5,5)`, `(0,1)` 
 
 ## 📌 **Formato de Salida de los barcos(jugador defensivo): **
-Son K lineas (una por cada tipo de barco)
+Son 5 lineas (una por cada tipo de barco)
 Cada línea en la salida contiene las ubicaciones de los barcos de un tipo. Cada barco se representa por tres valores: `X Y O`.
 Las lineas van a tener 3*bi caracteres(siendo bi la cantidad de barcos del tipo i)
 
