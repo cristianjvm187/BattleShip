@@ -26,7 +26,7 @@ for j in range(N):
 
 def assingDef():
     """
-    Esta es la funciom que devuelve la defensa creada por el competidor
+    Esta es la funcion que devuelve la defensa creada por el competidor
     En este caso prueba nosotros damos una defensa donde los barcos estan ubicados con cierto patron
     """
     aux = 0
