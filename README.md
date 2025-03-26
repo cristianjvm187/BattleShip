@@ -33,7 +33,7 @@ El historial de partidas consta de las posiciones defensivas en las partidas ant
 2 5 5  0 1
 ````
 ## 📄 Explicación del Ejemplo
-En el ejemplo la cantidad tipos de barcos son diferentes al de la competencia en busqueda de un mejor entendimiento de la forma del historial de partidas
+En el ejemplo la cantidad tipos de barcos son diferentes al de la competencia en busqueda de un mejor entendimiento  de la estructura del historial de partidas
 - **`N = 2` (Dos partidas anteriores).**  
 - **Cada partida tiene `3` líneas** con la ubicación de los barcos de cada tipo.  
 - **Después de las partidas, hay `N` líneas** con los ataques del rival.  
