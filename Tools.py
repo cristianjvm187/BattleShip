@@ -51,8 +51,6 @@ def Possible_def(defense, sizeOfBoard=Sb, numberOfShips=Ns):
     return 1, board
 
 
-# print(Possible_def(0))
-
 
 def Execute(lenguaje, name):
     """
@@ -108,10 +106,6 @@ def send_info_def(n_game, lastDefense, obj: subprocess.Popen, numberOfShips=Ns):
 
     for i in range(n_game):
         for type in lastDefense[i]:
-            # aqui daba la dimension 1xk por el numero de barcos que hay de ese tipo
-            # print(str(type) + " " + str(numberOfShips[type]))
-            # obj.stdin.write(str(type) + " " + str(numberOfShips[type]) + "\n")
-            # obj.stdin.flush()
             for k in range(numberOfShips[type]):
                 # orientacion row column
                 """
@@ -133,15 +127,12 @@ def send_info_def(n_game, lastDefense, obj: subprocess.Popen, numberOfShips=Ns):
                     + str(lastDefense[i][type][k][2])
                     + " "
                 )
-            # obj.stdin.flush()
-            # print("")
+
             obj.stdin.write("\n")
             obj.stdin.flush()
 
 
 def send_info_atk(n_game, lastAtack, obj: subprocess.Popen):
-    # obj.stdin.write(str(n_game) + "\n")
-    # obj.stdin.flush()
 
     for i in range(n_game):
         # cantidad de tiros
@@ -195,10 +186,8 @@ def Battle(
     get_def.stdout.close()
     get_def.stderr.close()
 
-    # pprint.pprint(Def_current)
     p, Def_current_matrix = Possible_def(Def_current)
 
-    # pprint.pprint(Def_current_matrix)
     # _______________________________________________________________________________
     posAtk = []
     num_shot = 0
@@ -209,7 +198,6 @@ def Battle(
         send_info_def(n_game, lastDefense, get_atk, numberOfShips)
         send_info_atk(n_game, lastAtack, get_atk)
         c = 0
-        # print("aassa")
         start_time = time.time()
         while num_shot < sizeOfBoard**2 + 10:
             if (time.time() - start_time) >= 1:
@@ -217,22 +205,16 @@ def Battle(
                 break
             intento = get_atk.stdout.readline().strip().split()
             num_shot += 1
-            # print(intento)
             if not intento:
-                # print("Puas")
                 break
-            # print("tiro ", intento)
             i, j = int(intento[0]), int(intento[1])
             posAtk.append((i, j))
-            # print(Def_current_matrix[i][j])
-            # si dio a un barco
             if Def_current_matrix[i][j] == 1:
                 c += 1
                 # si le di a todos
                 if c == totalOfShips:
-                    get_atk.stdin.write("-1 \n")
+                    get_atk.stdin.write("2 \n")
                     get_atk.stdin.flush()
-                    # get_atk.stdin.close()
                     break  # Salir del bucle cuando acierte
                 else:
                     get_atk.stdin.write("1 \n")
@@ -241,8 +223,6 @@ def Battle(
             else:
                 get_atk.stdin.write("0\n")
                 get_atk.stdin.flush()
-            # print("puas")
-        # print(posAtk)
         get_atk.kill()
         get_atk.stdin.close()
         get_atk.stdout.close()
@@ -250,41 +230,3 @@ def Battle(
     return num_shot, Def_current, posAtk
 
 
-if __name__ == "__main__":
-    exampledef = Execute("python", "Players/DefPilot.py")
-    """
-    exampleatk = Execute("python", "Players/AtkPilot.py")
-    Battle(
-        "python",
-        "python",
-        2,
-        "Players/DefPilot.py",
-        "Players/AtkPilot.py",
-        [
-            {
-                2: [(2, 6, "H")],
-                3: [(6, 0, "H"), (3, 8, "V")],
-                4: [(5, 4, "H")],
-                5: [(9, 0, "H")],
-            },
-            {
-                2: [(2, 6, "H")],
-                3: [(6, 0, "H"), (3, 8, "V")],
-                4: [(5, 4, "H")],
-                5: [(9, 0, "H")],
-            },
-        ],
-        [
-            [(2, 3), (4, 5), (1, 1)],
-            [(1, 1), (2, 2)],
-        ],
-        {2: 1, 3: 2, 4: 1, 5: 1},
-        2 + 6 + 4 + 5,
-        10,
-    )
-    """
-    send_info_def(0, [], exampledef, numberOfShips=Ns),
-    send_info_atk(0, [], exampledef)
-    M = get_pos_def(Ns, exampledef)
-    print(Possible_def(M)[1])
-    # AtkPilot.player1()
