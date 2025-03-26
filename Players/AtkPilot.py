@@ -36,7 +36,7 @@ def Atk():
             result = int(input())
             # print(result)
             # result = 0
-            if result == -1:
+            if result == 2:
                 break
 
 
