@@ -1,5 +1,7 @@
 # Battleship Bot Warfare
 
+Un jugador debera proporcionar dos programas uno que se encargue de la estrategia  defensiva y otro la de ofensiva. Cada uno de los programas debe recoger el historial de las partidas anteriores. El programa defensivo luego de recoger el historial de partidas debera  dar las posiciones de sus barcos. En cambio el ofensivo de manera analoga recogera el historial partidas y procedera a interactuar con el juez con el objetivo de descubrir las posiciones de los barcos del rival  
+
 Los 4 tipos de barcos y la catidad de barcos por cada tipo son:
 - Barco 2x1 cantidad 25
 - Barco 3x1 cantidad 50
@@ -7,6 +9,7 @@ Los 4 tipos de barcos y la catidad de barcos por cada tipo son:
 - Barco 5x1 cantidad 25
 
 ## 📌 Formato de Entrada Historial de Partidas
+El historial de partidas consta de las posiciones defensivas en las partidas anteriores del jugador a la defensa y los lugares donde ataco el jugador a la ofensiva en las partidas anteriores 
 1. Un número entero `N` → cantidad de partidas anteriores.
 2. Luego, para cada  una de esas partida se proporcionara la defensa que diste:
    - `4` líneas (una por cada tipo de barco), cada una con:
@@ -30,7 +33,7 @@ Los 4 tipos de barcos y la catidad de barcos por cada tipo son:
 2 5 5  0 1
 ````
 ## 📄 Explicación del Ejemplo
-
+En el ejemplo la cantidad tipos de barcos son diferentes al de la competencia en busqueda de un mejor entendimiento de la forma del historial de partidas
 - **`N = 2` (Dos partidas anteriores).**  
 - **Cada partida tiene `3` líneas** con la ubicación de los barcos de cada tipo.  
 - **Después de las partidas, hay `N` líneas** con los ataques del rival.  
@@ -65,14 +68,6 @@ Las lineas van a tener 3*bi caracteres(siendo bi la cantidad de barcos del tipo 
 - **Cada tipo de barco tiene `bi` barcos**, y cada barco está representado por sus coordenadas `X Y` (que corresponden a la esquina derecha del barco) y su orientación `O` (`H` para horizontal, `V` para vertical).
 
 ## 📌 Descripción del Formato de Interacción del Jugador Atacante
-
-Después de que el programa te proporcione toda la información relevante sobre la partida anteriores (ubicación de los barcos y otros detalles), comenzará a escuchar tus ataques. El jugador proporcionará coordenadas en formato `(x, y)` y el programa responderá con:
-
-- **`1`**: El ataque fue exitoso (coordenadas correctas, se acertó a un barco).
-- **`0`**: El ataque falló (coordenadas incorrectas, no se acertó a un barco).
-- **`-1`**: Fin de la partida. El jugador ya no puede hacer más ataques.
-
-### **Formato de Interacción:**
 
 1. **Al inicio de la partida**, el programa te proporciona toda la información necesaria sobre los barcos y la configuración del juego de las partidas anteriores.
    
