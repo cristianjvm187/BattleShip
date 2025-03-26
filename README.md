@@ -1,4 +1,4 @@
-# Battleship Bot Warfare
+# Battleship
 
 Un jugador debera proporcionar dos programas uno que se encargue de la estrategia  defensiva y otro la de ofensiva. Cada uno de los programas debe recoger el historial de las partidas anteriores. El programa defensivo luego de recoger el historial de partidas debera  dar las posiciones de sus barcos. En cambio el ofensivo de manera analoga recogera el historial partidas y procedera a interactuar con el juez con el objetivo de descubrir las posiciones de los barcos del rival  
 
