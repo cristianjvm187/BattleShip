@@ -1,12 +1,14 @@
 # Battleship
 
-Un jugador debera proporcionar dos programas uno que se encargue de la estrategia  defensiva y otro la de ofensiva. Cada uno de los programas debe recoger el historial de las partidas anteriores. El programa defensivo luego de recoger el historial de partidas debera  dar las posiciones de sus barcos. En cambio el ofensivo de manera analoga recogera el historial partidas y procedera a interactuar con el juez con el objetivo de descubrir las posiciones de los barcos del rival  
+Un jugador debera proporcionar dos programas uno que se encargue de la estrategia  defensiva y otro la de ofensiva. Cada uno de los programas debe recoger el historial de las partidas anteriores. El programa defensivo luego de recoger el historial de partidas debera  dar las posiciones de sus barcos. En cambio el ofensivo de manera analoga recogera el historial partidas y procedera a interactuar con el juez con el objetivo de descubrir las posiciones de los barcos del rival. 
 
 Los 4 tipos de barcos y la catidad de barcos por cada tipo son:
 - Barco 2x1 cantidad 25
 - Barco 3x1 cantidad 50
 - Barco 4x1 cantidad 25
 - Barco 5x1 cantidad 25
+En los ejemplos el numero de tipos de barcos asi como la cantidad de cada uno son diferentes al de la competencia en busqueda de un mejor entendimiento  de la estructura del historial de partidas, formato de salida de los barcos y de la interaccion
+
 
 ## 📌 Formato de Entrada Historial de Partidas
 El historial de partidas consta de las posiciones defensivas en las partidas anteriores del jugador a la defensa y los lugares donde ataco el jugador a la ofensiva en las partidas anteriores 
@@ -33,7 +35,6 @@ El historial de partidas consta de las posiciones defensivas en las partidas ant
 2 5 5  0 1
 ````
 ## 📄 Explicación del Ejemplo
-En el ejemplo la cantidad tipos de barcos son diferentes al de la competencia en busqueda de un mejor entendimiento  de la estructura del historial de partidas
 - **`N = 2` (Dos partidas anteriores).**  
 - **Cada partida tiene `3` líneas** con la ubicación de los barcos de cada tipo.  
 - **Después de las partidas, hay `N` líneas** con los ataques del rival.  
