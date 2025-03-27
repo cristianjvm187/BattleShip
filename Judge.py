@@ -148,4 +148,3 @@ class Judge:
             self.pos_def_player2.append(Infop1[1])
             self.pos_ataq_player2.append(Infop2[2])
             self.pos_def_player1.append(Infop2[1])
-            self._inc_game()

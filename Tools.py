@@ -51,7 +51,6 @@ def Possible_def(defense, sizeOfBoard=Sb, numberOfShips=Ns):
     return 1, board
 
 
-
 def Execute(lenguaje, name):
     """
     Executes a file in the specified language.
@@ -103,7 +102,7 @@ def send_info_def(n_game, lastDefense, obj: subprocess.Popen, numberOfShips=Ns):
     siguimos iterando por la cantidad del barco j que hay en la partida j
     y damos la oritenacion , fila , columa
     """
-
+    # print(lastDefense)
     for i in range(n_game):
         for type in lastDefense[i]:
             for k in range(numberOfShips[type]):
@@ -146,7 +145,7 @@ def send_info_atk(n_game, lastAtack, obj: subprocess.Popen):
         obj.stdin.flush()
 
 
-def get_pos_def(numberOfShips, obj: subprocess.Popen):
+def get_pos_def(obj: subprocess.Popen, numberOfShips=Ns):
     Defensa = {}
     for type in numberOfShips:
         inp = obj.stdout.readline().strip().split()
@@ -177,7 +176,7 @@ def Battle(
     send_info_atk(n_game, lastAtack, get_def)
 
     start_time = time.time()
-    Def_current = get_pos_def(numberOfShips, get_def)
+    Def_current = get_pos_def(get_def)
     if (time.time() - start_time) >= 5:
         Def_current = None
 
@@ -228,5 +227,3 @@ def Battle(
         get_atk.stdout.close()
         get_atk.stderr.close()
     return num_shot, Def_current, posAtk
-
-
