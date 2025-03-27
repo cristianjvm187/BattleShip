@@ -1,4 +1,3 @@
-
 # Battleship
 
 Un jugador deberá proporcionar dos programas: uno encargado de la estrategia defensiva y otro de la ofensiva. Cada uno de los programas debe recoger el historial de las partidas anteriores . El programa defensivo, luego de analizar el historial de partidas, deberá proporcionar las posiciones de sus barcos. Por otro lado, el programa ofensivo, de manera análoga, recogerá el historial de partidas y procederá a interactuar con el juez con el objetivo de descubrir las posiciones de los barcos del rival.
