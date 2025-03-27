@@ -107,3 +107,33 @@ Las líneas van a tener `3 × bi` caracteres (siendo `bi` la cantidad de barcos 
 4 4  ← El jugador ingresa las coordenadas del ataque.
 2      ← Fin de la partida (el juego ha terminado, no se pueden realizar más ataques).
 ```
+
+## 📝 Notas Importantes
+
+- Las coordenadas usan base 0.
+- El número de ataques puede variar.
+- Respetar estrictamente los formatos.
+
+### ⚠️ En competencia real:
+- La cantidad de barcos puede diferir respecto a los ejemplos.
+- El historial puede ser más extenso.
+
+## Consejos 
+- Usar el archivo Train.py para verificar el correcto funcionamiento con el juez
+- Hacer uso de los programas de ejemplo 
+- Tener en cuenta el uso de flush y de las rutas como deben ser pasadas
+  El uso de flush resulta muy importante para que la comunicación con el juez sea fluida y no existan errores
+de que el juez se quede esperando.
+
+En el caso de Python, tenemos 2 maneras:
+1. import sys
+    print(mensaje)
+    sys.stdout.flush()
+
+2. print(mensaje, flush=True)  # Recomendada
+
+Por otro lado, en C++ podemos usar:
+1. cout << mensaje << flush;  # Envía sin salto de línea
+2. cout << mensaje << endl;  # Equivalente a cout << mensaje << "\n" << flush;
+
+En nuestros códigos de ejemplo se muestra el uso de cada una.
