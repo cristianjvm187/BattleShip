@@ -26,9 +26,9 @@ En nuestros códigos de ejemplo se muestra el uso de cada una.
 from Judge import Judge
 
 # Aquí se almacenará la ruta de tu código de ataque (se muestra un ejemplo)
-your_atk = "C:/Users/crist/OneDrive/Escritorio/BattleShip/Players/AtkPilot"
+your_atk = "C:/Users/crist/OneDrive/Escritorio/BattleShip/Players/MRCplus_Atk"
 # Aquí se almacenará la ruta de tu código de defensa
-your_def = "C:/Users/crist/OneDrive/Escritorio/BattleShip/Players/DefPilot"
+your_def = "C:/Users/crist/OneDrive/Escritorio/BattleShip/Players/MRCplus_Def"
 
 # Especifica tu lenguaje: 'cpp' o 'python'
 lenguaje = "cpp"
@@ -40,8 +40,8 @@ En caso de querer poner la extensión, sería .exe.
 """
 
 # Puedes modificar el tipo de agente al que te enfrentas
-atk_rival = "C:/Users/crist/OneDrive/Escritorio/BattleShip/Players/AtkPilot.py"
-def_rival = "C:/Users/crist/OneDrive/Escritorio/BattleShip/Players/DefPilot.py"
+atk_rival = "C:/Users/crist/OneDrive/Escritorio/BattleShip/Players/UltraliskAtk.py"
+def_rival = "C:/Users/crist/OneDrive/Escritorio/BattleShip/Players/UltraliskDef.py"
 lenguaje_rival = "python"
 
 """
@@ -58,19 +58,19 @@ Test = Judge(
     lenguaje_player2=lenguaje_rival,
     cant_game=73,
     numberOfShips={2: 25, 3: 50, 4: 25, 5: 25},
-    totalOfShips=4,
+    totalOfShips=425,
     sizeOfBoard=50,
 )
 
 # Competir según el estilo Copa
 Test.CupMatch()
 # Obtener la información de la cantidad de emparejamientos ganados por tu jugador en el estilo copa
-print(Test.win_player1)
+print(Test.win_player2)
 
 # Competir según el estilo Liga
-Test.LeagueMatch()
+# Test.LeagueMatch()
 # Obtener la información de puntos obtenidos al enfrentarse con el jugador de prueba
-print(Test.points_player1)
+print(Test.points_player2)
 
 from Tools import Possible_def, get_pos_def, Execute
 

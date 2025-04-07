@@ -52,7 +52,6 @@ int main() {
             }
         }
     }
-
     for(int i = 0; i < N; ++i){
         // Read the number of attacks
         int A;

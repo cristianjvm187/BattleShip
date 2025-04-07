@@ -1,5 +1,6 @@
 import sys
 
+
 K = 4  # Cantidad de tipos de barcos
 gz = 50  # alto del tablero cuadrado
 

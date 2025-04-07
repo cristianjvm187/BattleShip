@@ -56,7 +56,7 @@ class Judge:
         self.pos_def_player2 = []
         self.pos_ataq_player1 = []
         self.pos_ataq_player2 = []
-        while self.win_player1 + self.win_player2 <= self.cant_game:
+        while self.win_player1 + self.win_player2 < self.cant_game:
             self.CupGame()
 
     def LeagueGame(self):
@@ -132,7 +132,7 @@ class Judge:
 
         p1 = Infop1[0]
         p2 = Infop2[0]
-
+        print(p1, p2)
         if p1 == p2:
             if random.random() < 0.5:
                 self.win_player1 += 1
